@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+
+
+class AddTriggerToProyectos extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('proyectos', function (Blueprint $table) {          
+            DB::unprepared('
+            CREATE TRIGGER insertar_proyecto 
+            AFTER INSERT ON proyectos 
+            FOR EACH ROW 
+            UPDATE users SET proyectoName=NEW.proyectoName 
+            WHERE equipoNumber=NEW.equipoNumber;
+        ');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('proyectos', function (Blueprint $table) {
+            //
+        });
+    }
+}

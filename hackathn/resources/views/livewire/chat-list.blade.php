@@ -4,7 +4,7 @@
     @if ($chat->usuario == auth()->user()->name)
 <li class="out">
         <div class="chat-img">
-        <img alt="Avtar" src="<?php echo  asset('storage/imagenes/')?>/<?php echo $chat->avatar?>">
+        <img alt="Avtar" src="<?php echo  asset('uploads/imagenes/')?>/<?php echo $chat->avatar?>">
         </div>
         <div class="chat-body">
             <div class="chat-message">
@@ -18,7 +18,7 @@
     @else 
     <li class="in">
         <div class="chat-img">
-        <img alt="Avtar" src="<?php echo  asset('storage/imagenes/')?>/<?php echo $chat->avatar?>">
+        <img alt="Avtar" src="<?php echo  asset('uploads/imagenes/')?>/<?php echo $chat->avatar?>">
         </div>
         <div class="chat-body">
             <div class="chat-message">

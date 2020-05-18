@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('title', "información")
@@ -47,7 +48,7 @@
                  <a class="avatar2" data-toggle="modal" data-target="#exampleModal">
               
                  
-                  <img id="avatar" class="avatar border-gray " src="<?php echo  asset('storage/imagenes/')?>/<?php echo auth()->user()->avatar?>" alt="...">
+                  <img id="avatar" class="avatar border-gray " src="<?php echo  asset('/uploads/imagenes')?>/<?php echo auth()->user()->avatar?>" alt="...">
 
                 
                    
@@ -110,7 +111,7 @@
                       <div class="col-md-2 col-2 d-flex flex-row justify-content-center alig-items-center">
                         
                      <div class="avatar ">
-                     <img  src="<?php echo  asset('storage/imagenes/')?>/<?php echo $user->avatar?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                     <img  src="<?php echo asset('/uploads/imagenes')?>/<?php echo $user->avatar?>" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                     
                         </div>
                      
@@ -174,20 +175,8 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js"></script>
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chart JS -->
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
-  <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../assets/demo/demo.js"></script>
+
+  
 @endsection 
 
 <!-- <div id="inicio" class="view " style=" "> -->

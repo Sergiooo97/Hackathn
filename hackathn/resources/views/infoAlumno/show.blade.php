@@ -20,7 +20,7 @@
              <a class="avatar2" data-toggle="modal" data-target="#exampleModal">
           
              
-              <img id="avatar" class="avatar border-gray " src="<?php echo  asset('storage/imagenes/')?>/<?php echo $users->avatar ?>" alt="...">
+              <img id="avatar" class="avatar border-gray " src="<?php echo  asset('uploads/imagenes/')?>/<?php echo $users->avatar ?>" alt="...">
 
             
                

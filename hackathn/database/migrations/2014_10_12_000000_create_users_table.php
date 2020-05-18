@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('rol');
             $table->string('carrera');
             $table->string('semestre');
-            $table->integer('matricula');
+            $table->integer('matricula')->unique();
             //$table->foreign('matricula')->references('avatar')->on('avatar_models');
             $table->string('equipoName');
             $table->integer('equipoNumber');

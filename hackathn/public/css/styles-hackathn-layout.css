@@ -1,0 +1,228 @@
+/*Ejemplo 1*/
+.avatar2 img {
+    transition: all 0.2s linear;
+    }
+    .avatar2 .mascara {
+    opacity: 0;
+    background-color: rgba(46,157,120, 0.7);
+    transition: all 0.3s ease-in-out;
+    }
+    .avatar2 h2 {
+    transform: translateX(-200px);/*Desplazamos a la izquierda*/
+    opacity: 0;
+    transition: all 0.7s ease-in-out;
+    }
+    .avatar2 p {
+    transform: translateX(200px);/*Desplazamos a la derecha*/
+    opacity: 0;
+    transition: all 0.4s linear;
+    }
+    .avatar2 a.link{
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    transform: translateY(100px)/*Desplazamos para abajo*/
+    }
+    .avatar2:hover img {
+    transform: scale(1.1);/*Damos un ligero zoom a la imagen*/
+    }
+    .avatar2:hover .mascara {
+    opacity: 1;
+    }
+    .avatar2:hover h2,
+    .avatar2:hover p,
+    .avatar2:hover a.link {
+    opacity: 1;
+    transform: translateX(0px);/*Regresamos a las posiciones originales*/
+    }
+    .avatar2:hover p {
+    transition-delay: 0.1s;
+    }
+    .avatar2:hover a.link {
+    transition-delay: 0.2s; /*Aplicamos un pequeño retardo para que se muestre al final*/
+    transform: translateY(0px);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+      .logos{
+        background:#043c5c;
+       }
+       .logos>a{
+       color: #ffffff;
+       }
+       @font-face {
+      font-family: "Northern";
+      src: url("../fonts/NorthernTerritories.ttf") format("truetype");
+      }
+    
+      .titleceneae{
+                    font-family:Northern;
+                    font-size: 30px
+                  }
+         .font-natacad{
+          font-family:Northern;
+    
+          }
+    .card .card-footer {
+      margin-top: 1em;
+      border: 0;
+    }
+    .card{
+      background:rgba(2, 35, 54, 0.7);
+    }
+    
+     .logos>a{
+     color: #ffffff;
+     }
+    
+    .logos{
+      background:rgba(2, 35, 54, 1.0);
+      color: #ffffff;
+    }
+    
+    .slider-label{
+      color:rgb(202, 202, 202);
+      font-size: 16px;
+      font-family: 'Ruda';
+    }
+    
+    
+    
+    li.active > a> p {
+      color: #ffffff;
+    
+    
+    }
+    
+    li.active > a {
+      color: #ffffff;
+      opacity: 1;
+      background:rgb(7, 33, 51);
+      border-radius: 5px;
+      font-size: 18px;
+      font-family: 'Ruda';
+    
+    }
+
+.proyecto{
+    text-align: center;
+    font-size: 22px;
+  }
+  .card_01{
+   padding:2em;
+    background:rgba(3, 46, 71, 0.7);
+     border-radius:15px;
+     color: #ffffff;
+  }
+  .card_001{
+   padding:2em;
+    background:rgba(3, 46, 71, 0.931);
+     border-radius:15px;
+     color: #ffffff;
+  }
+  .sidebar{
+    background:rgba(3, 46, 71, 0.7);
+  
+  }
+  .main-panel{
+  
+  background: rgba(0, 0, 0, 0);
+  }
+  .descriptioon{color: #ffffff;
+  font-size: 18px;
+  }
+  .card-title{
+    color: #ffffff;
+  font-size: 26px;
+  }
+  .miembros{
+    color: #ffffff;
+  font-size: 20px;
+  font-family: 'Ruda';
+  }
+  .miembroos{
+    font-weight: bold;
+    color: #ffffff;
+  font-size: 20px;
+  font-family: 'Ruda';
+  }
+  .rol{
+    color: #ffffff;
+  font-size: 16px;
+  font-family: 'Ruda';
+  }
+  .PROJ{
+    text-align: center;
+    color: #ffffff;
+  font-size: 46px;
+  font-family: 'Ruda';
+  }
+  .input-proyecto{
+    border-radius: 10px;
+    background: rgba(2, 35, 54, 0.7);
+    border: solid 1px #ffffff;
+    color: #ffffff;
+    width: 100%;
+  }
+  .scroll {
+      max-height: 65%;
+      overflow-y: auto;
+  }
+  .scroll-chat-list {
+    height: 225px;
+      max-height: 225px;
+      overflow-y: auto;
+  }
+  .button-hackathn{
+    border-radius: 10px;
+    border: solid 2px #51cbce;
+    background: rgba(202, 202, 202, 0);
+    color: #ffffff;
+    width: 110px;
+    height: 3em;
+    margin-top: 0.7em;
+  }
+  .input-proyecto2{
+    border-radius: 10px;
+    background: rgba(2, 35, 54, 0.7);
+    border: solid 1px #ffffff;
+    color: #ffffff;
+    width: 100%;
+    height: 35px;
+  }
+  .button-hackathn2{
+    border-radius: 10px;
+    border: solid 2px #51cbce;
+    background: rgba(202, 202, 202, 0);
+    color: #ffffff;
+    width: 110px;
+    height: 2.5em;
+    margin-top: 0.5em;
+  }
+  .button-hackathn:hover{
+    border-radius: 10px;
+    border: solid 2px #51cbce;
+    background: rgba(255, 255, 255, 0.226);
+    color: #ffffff;
+    width: 110px;
+    height: 3em;
+    margin-top: 0.5em;
+  }
+  .card-idea:hover{
+    -webkit-transform:scale(1.1);
+  -moz-transform:scale(1.1);
+  -ms-transform:scale(1.1);
+  -o-transform:scale(1.1);
+  transform:scale(1.1);
+  }
+  .alert-hackathn{
+    position: absolute; 
+    background:rgba(0, 110, 153, 0.602);
+    color: #FFFFFF;
+    border-radius: 15px;
+    margin-left: 4px;}

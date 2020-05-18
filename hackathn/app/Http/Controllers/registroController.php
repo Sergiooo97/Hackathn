@@ -32,6 +32,25 @@ class registroController extends Controller
     {
         //
     }
+    /**
+    * @param  array  $data
+    * @return \Illuminate\Contracts\Validation\Validator
+    */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'lastName' => ['required', 'string', 'max:255'],
+            'rol' => ['required', 'string', 'max:255'],
+            'carrera' => ['required', 'string', 'max:255'],
+            'semestre' => ['required', 'string', 'max:255'],
+            'matricula' => ['required', 'string','min:8', 'max:8'],
+            'equipoName' => ['required', 'string', 'max:255'],
+            'equipoNumber' => ['required', 'integer', 'max:100'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -41,6 +60,10 @@ class registroController extends Controller
      */
     public function store(Request $request)
     {
+       try {
+
+            
+
         if($avatar = User::setAvatar($request->avatar))
         $request->request->add(['avatar'=>$avatar]);
 
@@ -61,6 +84,10 @@ class registroController extends Controller
         $users->save();
         return redirect()->route('home');
 
+                //redirigimos a usuarios              
+            } catch (\Illuminate\Database\QueryException $e) {
+                return view('errors.23000');
+            }      
     }
 
     /**

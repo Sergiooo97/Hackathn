@@ -17,128 +17,15 @@
 	<!-- CSS Files -->
     <link href="{{ asset('registroAssets/css/bootstrap.min.css')}}" rel="stylesheet" />
 	<link href="{{ asset('registroAssets/css/gsdk-bootstrap-wizard.css')}}" rel="stylesheet" />
+	<link href="{{ asset('css/styles-hackathon-registro.css')}}" rel="stylesheet" />
 
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link href="{{ asset('registroAssets/css/demo.css')}}" rel="stylesheet" />
 
-    <style>
-        .card {
-  background:rgba(2, 35, 54, 0.965);
-  border-radius: 30px;
-            }
-.text-white{
-    color: #ffffff;
-}
-.button-hackathn{
-  border-radius: 10px;
-  border: solid 2px #51cbce;
-  background: rgba(202, 202, 202, 0);
-  color: #ffffff;
-  width: 110px;
-  height: 2.5em;
-  margin-top: 0.5em;
-}
-.button-hackathn:hover{
-  border-radius: 10px;
-  border: solid 2px #51cbce;
-  background: rgba(255, 255, 255, 0.226);
-  color: #ffffff;
-  width: 110px;
-  height: 2.5em;
-  margin-top: 0.5em;
-}
-.input100 {
-  font-family: Poppins-Medium;
-  font-size: 15px;
-  line-height: 1.5;
-  color: #4b4b4b;
+<script src="{{asset('/js/validar-password.js')}}" type="text/javascript"></script>
 
-  display: block;
-  width: 100%;
-  background: #ffffff;
-  height: 40px;
-  border-radius: 25px;
-  padding: 0 30px 0 68px;
-}
-.input1002 {
-  font-family: Poppins-Medium;
-  font-size: 15px;
-  line-height: 1.5;
-  color: #4b4b4b;
 
-  display: block;
-  width: 100%;
-  background: #ffffff;
-  height: 40px;
-  border-radius: 25px;
-  padding: 0 30px 0 25px;
-}
-.focus-input100 {
-  display: block;
-  position: absolute;
-  border-radius: 25px;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0px 0px 0px 0px;
-  color: rgba(255, 115, 115, 0.89);
-}
 
-.input100:focus + .focus-input100 {
-  -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
-  animation: anim-shadow 0.5s ease-in-out forwards;
-}
-
-@-webkit-keyframes anim-shadow {
-  to {
-    box-shadow: 0px 0px 70px 25px;
-    opacity: 0;
-  }
-}
-
-@keyframes anim-shadow {
-  to {
-    box-shadow: 0px 0px 70px 25px;
-    opacity: 0;
-  }
-}
-
-.symbol-input100 {
-  font-size: 15px;
-
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  border-radius: 25px;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding-left: 35px;
-  pointer-events: none;
-  color: #666666;
-
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
-}
-
-.input100:focus + .focus-input100 + .symbol-input100 {
-  color: #ff6060;
-  padding-left: 28px;
-}
-input {
-	outline: none;
-	border: none;
-}
-    </style>
 
 	</head>
 
@@ -157,7 +44,7 @@ input {
                     <div style="padding:1em; " class="wizard-container">
         
                         <div class="card wizard-card " data-color="blue" id="wizardProfile">
-                            <form method="POST" action="{{ route('registro.store') }}"  enctype="multipart/form-data">
+                            <form  name="mi_formulario"  method="POST" action="{{ route('registro.store') }}"  enctype="multipart/form-data" onSubmit="return validar_clave()">
                         <!--        You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
                         @csrf
                                 <div  class="wizard-header text-white">
@@ -203,9 +90,23 @@ input {
                                                   <label>Correo <small>(obligatorio)</small></label>
                                                   <input name="email" type="email" class="input100" placeholder="andrew@creative-tim.com">
                                               </div>
+                                         <script>
+
+                                        function soloNumeros(e)
+
+                                            {
+
+	                                            var key = window.Event ? e.which : e.keyCode
+
+	                                            return ((key >= 48 && key <= 57) || (key==8))
+
+                                            }
+    
+                                        </script>
+
                                               <div class="form-group">
                                                 <label>Matricula <small>(obligatorio)</small></label>
-                                                <input name="matricula" type="text" class="input100" placeholder="160700..">
+                                                <input onKeyPress="return soloNumeros(event)"  name="matricula" type="numeric" class="input100" placeholder="160700.." maxlength="8" >
                                             </div>
                                           </div>
                                       </div>
@@ -260,7 +161,7 @@ input {
                                                   </div>
                                                   <div class="col-sm-3">
                                                     <label># equipo</label>
-                                                    <input name="equipoNumber" type="text" class="input100" placeholder="buena maravilla onda dinamita escuadrón lobo" required>
+                                                    <input onKeyPress="return soloNumeros(event)"  name="equipoNumber" type="text" class="input100" placeholder="buena maravilla onda dinamita escuadrón lobo" maxlength="2" required>
                                                   </div>
                                                 </div>
                                             </div>
@@ -298,6 +199,8 @@ input {
                                                         <option value="8vo Semestre"> 8vo Semestre </option>
                                                     </select>                                                  </div>
                                             </div>
+
+                                        <!---------------------PASS ----------------->
                                             <div class="col-sm-5 col-sm-offset-1">
                                                 <div class="form-group row">
                                                     <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
@@ -313,6 +216,7 @@ input {
                                                     </div>
                                                 </div>
                                             </div>
+                                         <!---------------------PASS ----------------->
                                             <div class="col-sm-5">
                                                 <div class="form-group row">
                                                     <label for="password-confirm" class="col-md-6 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
@@ -322,6 +226,11 @@ input {
                                                     </div>
                                                 </div>
                                             </div>
+                                        <!---------------------PASS ----------------->
+                                       
+
+                                      <!--------------------- script confirmPASS----------------->
+
                                         </div>
                                     </div>
                                 </div>

@@ -50,7 +50,9 @@ class proyectoController extends Controller
      */
     public function store(Request $request)
     {
-        
+        try{
+
+      
         $users = new proyecto();
         $users ->proyectoName        = $request->input('proyectoName');
         $users ->equipoNumber        = auth()->user()->equipoNumber;
@@ -65,6 +67,11 @@ class proyectoController extends Controller
         $users ->sociosClave         = $request->input('sociosClave');
         $users->save();
         return back();
+    } catch (\Illuminate\Database\QueryException $e) {
+        return view('errors.230002');
+    }   
+
+
     }
 
     /**

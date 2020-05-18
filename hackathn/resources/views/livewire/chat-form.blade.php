@@ -6,7 +6,7 @@
     wire:model="mensaje" 
     wire:keydown.enter="enviarMensaje"                         
     class="input-proyecto2" 
-    id="mensaje">
+    id="mensaje" maxlength="250">
         <button 
     class="button-hackathn" 
     wire:click="enviarMensaje"

@@ -46,7 +46,7 @@ class User extends Authenticatable
     public static function setAvatar($avatar, $actual= false){
         if($avatar){
             if($actual){
-                Storage::disk('public')->delete("imagenes/$actual");
+                Storage::disk('public_uploads')->delete("imagenes/$actual");
             }
             $imageName = Str::random(20).'.jpg';
             $imagen = Image::make($avatar)->encode('jpg', 100);
@@ -54,7 +54,7 @@ class User extends Authenticatable
             $imagen->resize(500, 500, function($constraint){
                     $constraint->upsize();
             });
-            Storage::disk('public')->put("imagenes/$imageName", $imagen->stream());
+            Storage::disk('public_uploads')->put("imagenes/$imageName", $imagen->stream());
             return $imageName;
 
         }else{

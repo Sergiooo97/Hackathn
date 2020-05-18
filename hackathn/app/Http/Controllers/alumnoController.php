@@ -95,13 +95,21 @@ class alumnoController extends Controller
     {
 
        
-       $users = User::find($id)
-        or $userss = DB::table('chats')
-        //->where('avatar', auth()->user()->avatar)
-        ->orWhere('equipoNumber', auth()->user()->equipoNumber)
-        ->WhereNotIn("id", [auth()->user()->id])
-        ->get();
-        return view('infoAlumno.show', compact('users'));
+        $user = User::find($id);
+        if ($user==null){
+ 
+         return view('errors.404');
+        }else{
+ 
+ 
+            $users = User::find($id)
+            or $userss = DB::table('chats')
+            //->where('avatar', auth()->user()->avatar)
+            ->orWhere('equipoNumber', auth()->user()->equipoNumber)
+            ->WhereNotIn("id", [auth()->user()->id])
+            ->get();
+            return view('infoAlumno.show', compact('users'));
+        }
 
     }
 
